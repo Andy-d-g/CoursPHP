@@ -1,0 +1,19 @@
+input {
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#filename {
+    display: none;
+}
+
+.label-file {
+    background-color: rgb(1, 99, 22);
+    padding: 10px;
+    cursor:pointer;
+    color: rgb(236, 236, 236);
+}
+
+.label-file:hover {
+    background-color: rgb(1, 83, 19);
+}
