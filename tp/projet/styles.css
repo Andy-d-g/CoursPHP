@@ -1,0 +1,52 @@
+:root {
+    --dimension: 300px;
+}
+
+img {
+    padding: 10px;
+    width: var(--dimension);
+    height: var(--dimension);
+}
+
+img:hover {
+    width: calc(var(--dimension) + 10px);
+    height: calc(var(--dimension) + 10px);
+}
+
+h3 {
+    text-align: center;
+}
+
+main {
+    position: absolute;
+    left: 15%;
+}
+
+footer {
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+a {
+    text-decoration: none;
+    border: solid 1px grey;
+    cursor: pointer;
+    color: black;
+    padding: 5px;
+}
+
+.btn {
+    background-color: lightblue;
+    padding: 5px;
+    border: solid 1px black;
+    cursor: pointer;
+}
+
+.center {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}

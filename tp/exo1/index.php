@@ -7,10 +7,10 @@
     <body>
         <?php 
             # Starter directory 
-            $dir = "../../";
+            $dir = "./";
 
             # List of extensions to search
-            $extensions = ['jpg', 'jpeg'];
+            $extensions = ['jpg', 'jpeg', 'png'];
         ?>
         <h3>Liste vos fichiers et dossiers depuis <?php echo $dir ?></h3>
         <?php
@@ -25,7 +25,7 @@
                     # Get file extension
                     $extension = pathinfo($file, PATHINFO_EXTENSION);
                     if (in_array($extension, $extensions)) {
-                        echo "<p style='padding-left:" . $depth*10 . "px'>-  " . $file . " [JPG FILE DETECTED]</p>";
+                        echo "<p style='padding-left:" . $depth*10 . "px'>-  " . $file . " [JPG/JPEG/PNG FILE DETECTED]</p>";
                     } else {
                         echo "<p style='padding-left:" . $depth*10 . "px'>-  " . $file . "</p>";
                     }

@@ -32,6 +32,8 @@
         else echo "Fichier ajouté : ko";
     }
 
+    $upload = 0;
+
     # If there is a file
     if (isset($_FILES['filename'])) {
         if ($_FILES['filename']['size'] > 0 && $_FILES['filename']['error'] == 0) {
@@ -55,6 +57,8 @@
             insert_db($db, $base64, $type, $fileName, $width, $height, $filePath);
             # Logout
             logout_db($db);
+            
+            $upload = 1;
         }
         # If error
         else {
@@ -65,4 +69,5 @@
     else {
         echo "Pas de fichier trouver";
     }
+    header('Location: ./?upload=' . $upload);      
 ?>
