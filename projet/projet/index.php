@@ -8,7 +8,10 @@
     <body>
         <header style='text-align:center;'>
             <h3>Galerie d'image</h3>
-            <a class="btn" href="./search.php">Ajouter des images</a>
+            <div>
+                <a class="btn" href="./search.php">Ajouter des images</a>
+                <a class='btn' href='./print.php?file=../images'>Voir l'arborescence des images</a>
+            </div>
         </header>
         <?php
             # Login to db
@@ -56,14 +59,18 @@
                 if ($images->num_rows > 0) {
                     # For each row
                     echo "<main>";
+                    echo "<div>";
                     while($row = $images->fetch_assoc()) {
                         # Display row
                         if ($i % 3 == 0 && $i != 0) {
-                            echo "<br>";
+                            //echo "<br>";
+                            echo "</div>";
+                            echo "<div>";
                         }
-                        echo "<img id-value='" . $row['id'] . "' src='data:" . $row['type'] . ";charset=utf-8;base64, " . $row['data'] . "' alt='" . $row['name'] . "' />";
+                        echo "<img id-value='" . $row['id'] . "' src='" . $row['path'] . "' alt='" . $row['name'] . "' />";
                         $i++;
                     }
+                    echo "</div>";
                     echo "</main>";
                 }
                 echo "<br>";

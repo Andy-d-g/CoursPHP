@@ -21,12 +21,11 @@
         $db->close();
     }
 
-    function insert_db($db, $data, $type, $name, $width, $height, $path) {    
+    function insert_db($db, $type, $name, $width, $height, $path) {    
         # SQL request to add a new file to the db
-        $sql = "INSERT INTO galerie (id, data, name, type, width, height, path) VALUES (NULL, '" . $data . "', '" . $name . "', '" . $type . "', '" . $width . "', '" . $height . "', '" . $path . "')";
+        $sql = "INSERT INTO galerie (id, name, type, width, height, path) VALUES (NULL, '" . $name . "', '" . $type . "', '" . $width . "', '" . $height . "', '" . $path . "')";
         # Send request
         $result = $db->query($sql);
-
         # If successful : ok, else : ko
         if ($result) echo "Fichier ajouté : ok";
         else echo "Fichier ajouté : ko";
@@ -39,22 +38,24 @@
         if ($_FILES['filename']['size'] > 0 && $_FILES['filename']['error'] == 0) {
             # Get his path
             $filePath = realpath($_FILES["filename"]["tmp_name"]);
+            # Get file sub name
+            $fileSubName = array_reverse(explode("/", $filePath))[0];
             # Get his name
             $fileName = $_FILES['filename']['name'];
+            # Get file sub path
+            $fileSubPath = "../images/" . $fileSubName . "-" . $fileName;
             # Get type of image
             $type = $_FILES['filename']['type'];
             # Get image size
             $size = getimagesize($filePath);
             $width = $size['0'];
             $height = $size['1'];
-            # Get his content
-            $content = file_get_contents($filePath);
-            # Convert his content to base64
-            $base64 = base64_encode($content);
             # Login
             $db = login_db();
+            # Move upload file into different folder
+            move_uploaded_file($filePath, $fileSubPath);
             # Injection
-            insert_db($db, $base64, $type, $fileName, $width, $height, $filePath);
+            insert_db($db, $type, $fileName, $width, $height, $fileSubPath);
             # Logout
             logout_db($db);
             

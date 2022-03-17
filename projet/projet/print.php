@@ -3,15 +3,22 @@
 <html>
     <head>
         <title>Arboresence</title>
+        <link href="./styles.css" rel="stylesheet">
     </head>
     <body>
         <?php 
             # Starter directory 
-            $dir = "./";
+            # Ne pas oublier le "/" à la fin du $dir
+            $dir = "../images/";
+            if (isset($_GET['file'])) {
+                $dir = $_GET['file'];
+            }
 
             # List of extensions to search
             $extensions = ['jpg', 'jpeg', 'png'];
         ?>
+        <a class="btn" href="./search.php">Ajouter des images</a>
+        <a class="btn" href="./index.php">Voir les images</a>
         <h3>Liste vos fichiers et dossiers depuis <?php echo $dir ?></h3>
         <?php
             # display element in function of his depth 

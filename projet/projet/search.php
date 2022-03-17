@@ -8,6 +8,8 @@
     <body>
         <header>
             <h3>Search and import</h3>
+            <a class="btn" href="./index.php">Voir les images</a>
+            <a class='btn' href='./print.php?file=../images'>Voir l'arborescence des images</a>
         </header>
         <div class="center">
             <form action="script.php" method="POST" enctype="multipart/form-data">
