@@ -70,5 +70,5 @@
     else {
         echo "Pas de fichier trouver";
     }
-    header('Location: ./?upload=' . $upload);      
+    header('Location: ./?upload=' . $upload);
 ?>
