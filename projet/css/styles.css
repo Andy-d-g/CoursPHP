@@ -1,0 +1,18 @@
+.btn {
+    background-color: lightblue;
+    padding: 5px;
+    border: solid 1px black;
+    cursor: pointer;
+}
+
+table {
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    border: solid 1px grey;
+    cursor: pointer;
+    color: black;
+    padding: 5px;
+}

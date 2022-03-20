@@ -9,8 +9,8 @@
         <header style='text-align:center;'>
             <h3>Galerie d'image</h3>
             <div>
-                <a class="btn" href="./search.php">Ajouter des images</a>
-                <a class='btn' href='./print.php?file=../images'>Voir l'arborescence des images</a>
+                <a class="btn" href="./form.php">Ajouter des images</a>
+                <a class='btn' href='./arborescence.php?file=../images'>Voir l'arborescence des images</a>
             </div>
         </header>
         <?php
