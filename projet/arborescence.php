@@ -85,7 +85,7 @@
                 else {
                     # Get file extension
                     $extension = pathinfo($file, PATHINFO_EXTENSION);
-                    if (in_array($extension, $extensions)) {
+                    if (in_array(strtolower($extension), $extensions)) {
                         if ($db) {
                             $imageSize = getimagesize($dir . "/" . $file);
                             $width = $imageSize['0'];
@@ -112,7 +112,7 @@
                             # Display the directory name
                             displayDepth($dir, $file, $depth, true, $extensions, $db);
                             # Launch again the function for the next depth
-                            listDirFilesInDepth($dir . $file . '/', $depth+1, $extensions);
+                            listDirFilesInDepth($dir . $file . '/', $depth+1, $extensions, $db);
                         }
                     }
                     # If file

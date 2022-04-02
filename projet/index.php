@@ -3,7 +3,7 @@
 <html>
     <head>
         <title>Projet</title>
-        <link href="./styles.css" rel="stylesheet">
+        <link href="./css/styles.css" rel="stylesheet">
     </head>
     <body>
         <header style='text-align:center;'>
@@ -63,11 +63,12 @@
                     while($row = $images->fetch_assoc()) {
                         # Display row
                         if ($i % 3 == 0 && $i != 0) {
-                            //echo "<br>";
                             echo "</div>";
                             echo "<div>";
                         }
+                        echo "<a style='border:none;' href='./delete.php?id=" . $row['id'] . "'>";
                         echo "<img id-value='" . $row['id'] . "' src='" . $row['path'] . "' alt='" . $row['name'] . "' />";
+                        echo "</a>";
                         $i++;
                     }
                     echo "</div>";
@@ -115,7 +116,6 @@
                 } else {
                     echo "<h3 style='color: red;'>ERREUR LORS DE L'UPLOAD</h3>";
                 }
-                
             }
 
             # Get pagination number
